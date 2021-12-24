@@ -1,7 +1,7 @@
-import { createStore as vuexCreateStore } from 'vuex'
+import { createStore } from 'vuex'
 import EventService from '@/services/EventService'
 
-const storeConfiguration = {
+export default createStore({
   state: {
     user: 'Adam Jahr',
     events: [],
@@ -59,29 +59,4 @@ const storeConfiguration = {
     }
   },
   modules: {}
-}
-
-const defaultOverrides = {
-  state: () => {
-    return {}
-  }
-}
-
-function makeState(initialState, overrideState) {
-  return {
-    ...(typeof initialState === 'function' ? initialState() : initialState),
-    ...overrideState()
-  }
-}
-
-export function createStore(storeOverrides = defaultOverrides) {
-  return vuexCreateStore({
-    ...storeConfiguration,
-    ...storeOverrides,
-    ...{
-      state: makeState(storeConfiguration.state, storeOverrides.state)
-    }
-  })
-}
-
-export default createStore()
+})

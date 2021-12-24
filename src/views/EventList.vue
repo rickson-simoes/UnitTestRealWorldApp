@@ -1,14 +1,7 @@
 <template>
-  <h1 data-testid="event-list-title">Events for Good</h1>
+  <h1>Events for Good</h1>
   <div class="events">
-    <router-link
-      class="event-link"
-      :to="{ name: 'EventDetails', params: { id: event.id } }"
-      v-for="event in events"
-      :key="event.id"
-    >
-      <EventCard data-testid="event" :event="event" />
-    </router-link>
+    <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
 
