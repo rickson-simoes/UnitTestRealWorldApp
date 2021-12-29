@@ -15,7 +15,7 @@ describe('It works', () => {
   })
 
   describe('Page  title', () => {
-    it('Is renderes with the correct text', () => {
+    it('Is renders with the correct text', () => {
       const wrapper = mount(EventList, {
         global: {
           plugins: [store, router]
